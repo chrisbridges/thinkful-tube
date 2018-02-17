@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
 	<title>Think-Tube</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	<h1>Think-Tube</h1>
-	<form id="youtube-search-form">
-		<label for="search-bar">
-		<input type="text" id="search-bar" placeholder="Search YouTube Videos">
-		<button type="submit">Search</button>
-	</form>
-	<div class="search-results">
-	</div>
-  <button>Prev Page</button>
-  <button href="#">Next Page</button>
+  <header>
+  	<h1>Think-Tube</h1>
+  	<form id="youtube-search-form">
+  		<label for="search-bar"></label>
+  		<input type="text" id="search-bar" placeholder="Search YouTube Videos">
+  		<button type="submit">Search</button>
+  	</form>
+    <button class="prev-button">Prev Page</button>
+    <button class="next-button">Next Page</button>
+  </header>
+	<div class="search-results"></div>
 	<script
 	  src="http://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

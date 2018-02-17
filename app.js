@@ -8,11 +8,7 @@ function getDataFromAPI (userSearchValue, callback) {
 		maxResults: 6,
     type: 'video'
 	};
-  /*
-  if (nextPageToken) {
-    params.nextPage = nextPageToken;
-  }*/
-	$.getJSON(YOUTUBE_API_ENDPOINT, params, callback);
+	$.getJSON(YOUTUBE_API_ENDPOINT, params, callback).fail(showError);
   console.log($.getJSON(YOUTUBE_API_ENDPOINT, params, callback));
 }
 
@@ -22,7 +18,7 @@ function renderResult (item) {
   const videoURL = videoIDprecursor + videoID;
 	return `
 		<div class='video-result'>
-			<a href="${videoURL}"><img class="video-result-thumbnail" src="${item.snippet.thumbnails.medium.url}"></a>
+			<a href="${videoURL}"><img class="video-result-thumbnail" src="${item.snippet.thumbnails.medium.url}" alt="${item.snippet.title + 'thumbnail'}"></a>
 			<a href="${videoURL}"><h2>${item.snippet.title}</h2></a>
 			<span>by</span>
 			<a href="#"><h3>${item.snippet.channelTitle}</h3></a>
@@ -46,11 +42,8 @@ function listenForUserSearch () {
 	});
 }
 
-/*function nextPage () {
-  $('.next-page').on('click', function(event) {
-    listenForUserSearch(nextPageToken);
-  });
+function showError () {
+  $('.search-results').html(`<p>Sorry. There were no videos that match that search.</p>`);
 }
-*/
 
 $(listenForUserSearch);

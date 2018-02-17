@@ -5,17 +5,19 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-  <header>
-  	<h1>Think-Tube</h1>
-  	<form id="youtube-search-form">
-  		<label for="search-bar"></label>
+  <header role="banner">
+  	<form id="youtube-search-form" role="form">
+      <legend>Think-Tube</legend>
+  		<label for="search-bar">Search YouTube Videos</label>
   		<input type="text" id="search-bar" placeholder="Search YouTube Videos">
   		<button type="submit">Search</button>
   	</form>
     <button class="prev-button">Prev Page</button>
     <button class="next-button">Next Page</button>
   </header>
-	<div class="search-results"></div>
+  <main role="main">
+	 <div class="search-results"></div>
+  </main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </body>

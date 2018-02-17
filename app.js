@@ -8,6 +8,10 @@ function getDataFromAPI (userSearchValue, callback) {
 		maxResults: 6,
     type: 'video'
 	};
+  /*
+  if (nextPageToken) {
+    params.nextPage = nextPageToken;
+  }*/
 	$.getJSON(YOUTUBE_API_ENDPOINT, params, callback);
   console.log($.getJSON(YOUTUBE_API_ENDPOINT, params, callback));
 }
@@ -15,10 +19,11 @@ function getDataFromAPI (userSearchValue, callback) {
 function renderResult (item) {
 	const videoIDprecursor = "https://www.youtube.com/watch?v=";
 	const videoID = item.id.videoId;
+  const videoURL = videoIDprecursor + videoID;
 	return `
 		<div class='video-result'>
-			<img class="video-result-thumbnail" src="${item.snippet.thumbnails.medium.url}">
-			<a href="${videoIDprecursor + videoID}"><h2>${item.snippet.title}</h2></a>
+			<a href="${videoURL}"><img class="video-result-thumbnail" src="${item.snippet.thumbnails.medium.url}"></a>
+			<a href="${videoURL}"><h2>${item.snippet.title}</h2></a>
 			<span>by</span>
 			<a href="#"><h3>${item.snippet.channelTitle}</h3></a>
 		</div>`
@@ -41,5 +46,11 @@ function listenForUserSearch () {
 	});
 }
 
+/*function nextPage () {
+  $('.next-page').on('click', function(event) {
+    listenForUserSearch(nextPageToken);
+  });
+}
+*/
 
 $(listenForUserSearch);

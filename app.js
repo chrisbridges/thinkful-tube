@@ -29,7 +29,7 @@ function displayResults (data) {
 	const results = data.items.map(function(item) {
 		return renderResult(item);
 	});
-	$('.search-results').html(results);
+	$('.js-search-results').prop('hidden', false).html(results);
 }
 
 function listenForUserSearch () {
@@ -43,7 +43,7 @@ function listenForUserSearch () {
 }
 
 function showError () {
-  $('.search-results').html(`<p>Sorry. There were no videos that match that search.</p>`);
+  $('.js-search-results').prop('hidden', false).html(`<p>Sorry. There were no videos that match that search.</p>`);
 }
 
 $(listenForUserSearch);

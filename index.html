@@ -15,8 +15,8 @@
     <button class="prev-button">Prev Page</button>
     <button class="next-button">Next Page</button>
   </header>
-  <main role="main">
-	 <div class="search-results"></div>
+  <main role="main" aria-live="assertive">
+	 <div class="search-results js-search-results" hidden></div>
   </main>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>

@@ -5,14 +5,16 @@ function getDataFromAPI (userSearchValue, callback) {
 		part: 'snippet',
 		key: 'AIzaSyDh_xGPxAMR6QUO2UmQ9dN-hVTuh_uoXqc',
 		q: userSearchValue,
-		maxResults: 6
+		maxResults: 6,
+    type: 'video'
 	};
 	$.getJSON(YOUTUBE_API_ENDPOINT, params, callback);
+  console.log($.getJSON(YOUTUBE_API_ENDPOINT, params, callback));
 }
 
 function renderResult (item) {
 	const videoIDprecursor = "https://www.youtube.com/watch?v=";
-	const videoID = item.videoID;
+	const videoID = item.id.videoId;
 	return `
 		<div class='video-result'>
 			<img class="video-result-thumbnail" src="${item.snippet.thumbnails.medium.url}">
